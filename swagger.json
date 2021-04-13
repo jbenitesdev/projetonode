@@ -1,0 +1,127 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Yet Another Node.js Blogg Application API",
+		"description": "Yet Another Node.js Blogg Application API",
+		"license": {
+			"name": "MIT",
+			"url": "https://opensource.org/licenses/MIT"
+		}
+	},
+	"host": "flink-project.herokuapp.com",
+	"basePath": "/api",
+	"tags": [
+		{
+			"name": "usuario",
+			"description": "API for Contratos in the system"
+		}
+	],
+	"schemes": [
+		"https",
+		"http"
+	],
+	"securityDefinitions": {
+		"Bearer": {
+			"type": "apiKey",
+			"in": "header",
+			"name": "Authorization"
+		}
+	},
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		"/create": {
+			"post": {
+				"tags": [
+					"usuario"
+				],
+				"description": "Create new usuario in system",
+				"parameters": [
+					{
+						"name": "usuario",
+						"in": "body",
+						"description": "usuario that we want to create"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "New usuario is created"
+					}
+				}
+			}
+		},
+		"/login": {
+			"post": {
+				"tags": [
+					"usuario"
+				],
+				"description": "Create new usuario in system",
+				"parameters": [
+					{
+						"name": "contratos",
+						"in": "body",
+						"description": "contratos that we want to create"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "New contrato is created"
+					}
+				}
+			}
+		},
+		"/post": {
+			"post": {
+				"tags": [
+					"post"
+				],
+				"security": [{
+					"Bearer": []
+				}],
+				"description": "Create new contratos in system",
+				"parameters": [
+					{
+						"name": "contratos",
+						"in": "body",
+						"description": "contratos that we want to create"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "New contrato is created",
+						"schema": {
+							"$ref": "#/definitions/contratos"
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": [
+					"post"
+				],
+				"security": [{
+					"Bearer": []
+				}],
+				"responses": {
+					"200": {
+						"description": "post is found"
+					}
+				}
+			}
+		}
+	}
+}
